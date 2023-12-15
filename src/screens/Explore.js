@@ -20,6 +20,7 @@ import ProductModel from '../models/ProductModel';
 import {getFilteredProductsApi} from '../redux/constants/Apis';
 import Flatlist from '../components/Flatlist';
 import FlatlistTabView from '../components/FlatlistTabView';
+import Colors from '../assets/Colors';
 export default function Explore() {
   const dummyModelObj = {
     productImage: '',
@@ -100,7 +101,7 @@ export default function Explore() {
       ) : (
         <View style={styles.container}>
           <View style={styles.radioButtonContainer}>
-            <Text>Search by </Text>
+            <Text style = {{color: Colors.primaryFontColor}}>Search by </Text>
             <RadioButton.Item
               label="Category"
               value="category"

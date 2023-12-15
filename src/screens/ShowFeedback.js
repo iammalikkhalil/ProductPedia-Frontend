@@ -76,6 +76,7 @@ export default function ShowFeedback() {
                   style={{
                     textAlign: 'center',
                     padding: 20,
+                    color: Colors.primaryFontColor,
                     display: isEmpty ? 'flex' : 'none',
                   }}>
                   No Feedback Found

@@ -16,6 +16,7 @@ const DropdownComponent = ({propsData}) => {
         selectedTextStyle={styles.selectedTextStyle}
         inputSearchStyle={styles.inputSearchStyle}
         iconStyle={styles.iconStyle}
+        itemTextStyle = {styles.dropdownTextStyle}
         data={propsData.data}
         onFocus={() => setFocus(true)}
         onBlur={() => setFocus(false)}
@@ -28,7 +29,7 @@ const DropdownComponent = ({propsData}) => {
         value={value}
         onChange={item => {
           propsData.setValue(item);
-          setFocus(false)
+          setFocus(false);
         }}
       />
     </View>
@@ -42,6 +43,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.primaryBgColor,
   },
   dropdown: {
+    color: 'red',
     height: 50,
     borderRadius: 8,
     paddingHorizontal: 8,
@@ -60,6 +62,7 @@ const styles = StyleSheet.create({
   },
   selectedTextStyle: {
     fontSize: 16,
+    color: Colors.primaryFontColor,
   },
   iconStyle: {
     width: 25,
@@ -68,5 +71,8 @@ const styles = StyleSheet.create({
   inputSearchStyle: {
     height: 40,
     fontSize: 16,
+  },
+  dropdownTextStyle: {
+    color: Colors.primaryFontColor,
   },
 });

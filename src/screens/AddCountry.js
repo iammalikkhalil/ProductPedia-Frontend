@@ -63,7 +63,7 @@ console.log(response.data.data._id);
           <TextInput
             style={styles.inputContainerInputFeild}
             placeholderTextColor="gray"
-            placeholder="United States"
+            placeholder="United States etc."
             value={countryName}
             onChangeText={e => {
               setCountryName(e);

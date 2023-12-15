@@ -19,6 +19,7 @@ export default function TabViewLocalComponent({params}) {
       <TextInput
         style={styles.searchInput}
         placeholder="Search by name"
+        placeholderTextColor={Colors.primaryFontColor}
         value={searchQuery}
         onChangeText={handleSearch}
       />
@@ -42,5 +43,6 @@ const styles = StyleSheet.create({
     margin: 10,
     paddingLeft: 20,
     fontSize: 16,
+    color: Colors.primaryFontColor
   },
 });

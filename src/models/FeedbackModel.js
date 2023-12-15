@@ -92,6 +92,7 @@ const styles = StyleSheet.create({
   closeIcon: {
     textAlign: 'right',
     fontSize: 30,
+    color: Colors.primaryFontColor,
   },
   discriptionContainer: {
     margin: 10,

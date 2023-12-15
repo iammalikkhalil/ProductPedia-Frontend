@@ -17,6 +17,7 @@ import {getFeedbacksApi} from '../redux/constants/Apis';
 import FeedbackModel from '../models/FeedbackModel';
 import ProductCard from '../components/ProductCard';
 import FeedbackCard from '../components/FeedbackCard';
+import Colors from '../assets/Colors';
 export default function ShowFeedback() {
   const dummyModelObj = {
     productImage: '',
@@ -46,7 +47,6 @@ export default function ShowFeedback() {
       if (response.data.length == 0) {
         setIsEmpty(true);
       }
-      setIsEmpty();
     } catch (error) {
       console.log(error);
     } finally {
@@ -66,7 +66,8 @@ export default function ShowFeedback() {
         <View style={styles.container}>
           {isLoading ? (
             <ActivityIndicator size="large" color={Colors.primaryFontColor} />
-          ) : (
+          ) : 
+          isEmpty? 
             <FlatList
               data={feedbacks}
               keyExtractor={(item, index) => index.toString()}
@@ -89,8 +90,8 @@ export default function ShowFeedback() {
                   <FeedbackCard cardData={item} />
                 </Pressable>
               )}
-            />
-          )}
+            /> : <Text style= {{color: Colors.primaryFontColor, textAlign: "center", margin: 20}}>No Feedbacks Found</Text>
+          }
         </View>
       )}
     </>

@@ -21,6 +21,7 @@ export default function TabViewInternationalComponent({params}) {
         placeholder="Search by name"
         value={searchQuery}
         onChangeText={handleSearch}
+        placeholderTextColor={Colors.primaryFontColor}
       />
       <Flatlist
         paramsData={{
@@ -42,5 +43,6 @@ const styles = StyleSheet.create({
     margin: 10,
     paddingLeft: 20,
     fontSize: 16,
+    color: Colors.primaryFontColor
   },
 });

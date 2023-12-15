@@ -66,7 +66,7 @@ export default function AddCategory() {
           <TextInput
             style={styles.inputContainerInputFeild}
             placeholderTextColor="gray"
-            placeholder="Soap"
+            placeholder="Soap etc."
             value={categoryName}
             onChangeText={e => {
               setCategoryName(e);

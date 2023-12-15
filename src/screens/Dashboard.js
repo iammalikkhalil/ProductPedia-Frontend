@@ -106,7 +106,7 @@ export default function AdminDashboard(props) {
                   iconName: 'admin',
                   iconColor: Colors.primaryFontColor,
                   textColor: Colors.primaryFontColor,
-                  text: 'Admin',
+                  text: 'Login',
                 }}
               />
             </TouchableOpacity>

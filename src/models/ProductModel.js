@@ -9,6 +9,7 @@ import {
   Image,
 } from 'react-native';
 import Ip from '../assets/Ip';
+import Colors from '../assets/Colors';
 
 const ProductModel = ({props}) => {
   const companyLogo = Ip + '/images/' + props.item.companyId.companyLogo;
@@ -90,6 +91,7 @@ const styles = StyleSheet.create({
   closeIcon: {
     textAlign: 'right',
     fontSize: 30,
+    color: Colors.primaryFontColor,
   },
   profileImageContainer: {
     alignItems: 'center',

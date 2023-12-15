@@ -118,7 +118,7 @@ export default function AddCompany(props) {
           <TextInput
             style={styles.inputContainerInputFeild}
             placeholderTextColor="gray"
-            placeholder="United States"
+            placeholder="Uniliver etc."
             value={companyName}
             onChangeText={e => {
               setCompanyName(e);

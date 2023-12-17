@@ -3,7 +3,31 @@ import {StyleSheet, Text, View, TextInput} from 'react-native';
 import Flatlist from './Flatlist';
 import Colors from '../assets/Colors';
 
+import {useSelector} from 'react-redux';
+import ProductModel from '../models/ProductModel';
+
 export default function TabViewLocalComponent({params}) {
+  const dummyModelObj = {
+    productImage: '',
+    name: '',
+    categoryId: {
+      name: '',
+      companyLogo: '',
+    },
+    companyId: {
+      companyLogo: '',
+      country: {
+        name: '',
+      },
+    },
+  };
+
+  const reduxModelVisiblity = useSelector(
+    state => state.ToggleModelVisibalityReducers,
+  );
+  console.log('reduxModelVisiblity', reduxModelVisiblity);
+  const [modalData, setModalData] = useState(dummyModelObj);
+
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredData, setFilteredData] = useState(params.data);
 
@@ -15,22 +39,27 @@ export default function TabViewLocalComponent({params}) {
     setFilteredData(filtered);
   };
   return (
-    <View>
-      <TextInput
-        style={styles.searchInput}
-        placeholder="Search by name"
-        placeholderTextColor={Colors.primaryFontColor}
-        value={searchQuery}
-        onChangeText={handleSearch}
-      />
-      <Flatlist
-        paramsData={{
-          data: filteredData,
-          setModalData: params.setModalData,
-          setModalVisible: params.setModalVisible,
-        }}
-      />
-    </View>
+    <>
+      {reduxModelVisiblity ? (
+        <ProductModel props={{item: modalData}} />
+      ) : (
+        <View>
+          <TextInput
+            style={styles.searchInput}
+            placeholder="Search by name"
+            placeholderTextColor={Colors.primaryFontColor}
+            value={searchQuery}
+            onChangeText={handleSearch}
+          />
+          <Flatlist
+            paramsData={{
+              data: filteredData,
+              setModalData
+            }}
+          />
+        </View>
+      )}
+    </>
   );
 }
 
@@ -43,6 +72,6 @@ const styles = StyleSheet.create({
     margin: 10,
     paddingLeft: 20,
     fontSize: 16,
-    color: Colors.primaryFontColor
+    color: Colors.primaryFontColor,
   },
 });

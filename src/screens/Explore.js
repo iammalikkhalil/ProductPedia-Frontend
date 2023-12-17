@@ -22,28 +22,15 @@ import Flatlist from '../components/Flatlist';
 import FlatlistTabView from '../components/FlatlistTabView';
 import Colors from '../assets/Colors';
 export default function Explore() {
-  const dummyModelObj = {
-    productImage: '',
-    name: '',
-    categoryId: {
-      name: '',
-      companyLogo: '',
-    },
-    companyId: {
-      companyLogo: '',
-      country: {
-        name: '',
-      },
-    },
-  };
+
+
 
   const categoriesList = useSelector(state => state.CategoryReducers);
   const companiesList = useSelector(state => state.CompanyReducers);
   const [pickerData, setPickerData] = useState([]);
   const [isPickerValueSelected, setIsPickerValueSelected] = useState(false);
   const [selectedPickerItem, setSelectedPickerItem] = useState({});
-  const [modalVisible, setModalVisible] = useState(false);
-  const [modalData, setModalData] = useState(dummyModelObj);
+
   const [sortBy, setSortBy] = useState('category');
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -95,10 +82,6 @@ export default function Explore() {
   }, [selectedPickerItem]);
 
   return (
-    <>
-      {modalVisible ? (
-        <ProductModel props={{setModalVisible, item: modalData}} />
-      ) : (
         <View style={styles.container}>
           <View style={styles.radioButtonContainer}>
             <Text style = {{color: Colors.primaryFontColor}}>Search by </Text>
@@ -129,16 +112,12 @@ export default function Explore() {
             <FlatlistTabView
               paramsData={{
                 data: filteredProducts,
-                setModalVisible,
-                setModalData,
               }}
             />
           ) : (
             <></>
           )}
         </View>
-      )}
-    </>
   );
 }
 const styles = StyleSheet.create({

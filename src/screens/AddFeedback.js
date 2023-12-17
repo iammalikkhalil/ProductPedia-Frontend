@@ -10,7 +10,7 @@ import axios from 'axios';
 import Colors from '../assets/Colors';
 import ShowToast from '../components/ShowToast';
 import Toast from 'react-native-toast-message';
-import {postFeedbackApi} from '../redux/constants/Apis';
+import {getFilteredProductsApi, postFeedbackApi} from '../redux/constants/Apis';
 
 export default function AddFeedback() {
   const categoriesList = useSelector(state => state.CategoryReducers);
@@ -29,22 +29,28 @@ export default function AddFeedback() {
   }, [selectedCategory]);
 
   async function getProducts() {
-    try {
-      const response = await axios.put(
-        postFeedbackApi,
-        {
-          id: selectedCategory._id,
-          sortBy: 'category',
-        },
-        {
-          headers: {
-            'Content-Type': 'application/json',
+    if (Object.keys(selectedCategory).length == 0) {
+      console.log('Empty !!');
+    } else {
+      try {
+        const response = await axios.put(
+          getFilteredProductsApi,
+          {
+            id: selectedCategory._id,
+            sortBy: 'category',
           },
-        },
-      );
-      setProducts(response.data);
-    } catch (error) {
-      console.error('Error getting products:', error);
+          {
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          },
+        );
+        const combinedArray = [...response.data.local, ...response.data.international];
+        setProducts(combinedArray);
+        console.log(combinedArray);
+      } catch (error) {
+        console.error('Error getting products:', error);
+      }
     }
   }
 
@@ -53,17 +59,18 @@ export default function AddFeedback() {
       name == '' ||
       phone == '' ||
       Object.keys(selectedProduct).length == 0 ||
-      discription == ''
+      discription == '' ||
+      reference == ''
     ) {
       ShowToast({
         type: 'error',
-        text1: 'Please Fill Forms!',
+        text1: 'Please Fill All Feilds!',
       });
     } else {
       setIsSubmitButtonEnable(false);
       try {
         const obj = {
-           name: name,
+          name: name,
           email: email,
           phoneNo: phone,
           productId: selectedProduct._id,
@@ -103,7 +110,7 @@ export default function AddFeedback() {
     <View>
       <View style={styles.container}>
         <View style={styles.inputContainer}>
-          <Text style={styles.inputContainerLabel}>Enter Name</Text>
+          <Text style={styles.inputContainerLabel}>Name</Text>
           <TextInput
             style={styles.inputContainerInputFeild}
             placeholderTextColor="gray"
@@ -116,7 +123,7 @@ export default function AddFeedback() {
           />
         </View>
         <View style={styles.inputContainer}>
-          <Text style={styles.inputContainerLabel}>Enter Email</Text>
+          <Text style={styles.inputContainerLabel}>Email</Text>
           <TextInput
             style={styles.inputContainerInputFeild}
             placeholderTextColor="gray"
@@ -129,7 +136,7 @@ export default function AddFeedback() {
           />
         </View>
         <View style={styles.inputContainer}>
-          <Text style={styles.inputContainerLabel}>Enter Phone #</Text>
+          <Text style={styles.inputContainerLabel}>Phone #</Text>
           <TextInput
             style={styles.inputContainerInputFeild}
             placeholderTextColor="gray"
@@ -142,7 +149,7 @@ export default function AddFeedback() {
           />
         </View>
         <View style={styles.inputContainer}>
-          <Text style={styles.inputContainerLabel}>Select Category</Text>
+          <Text style={styles.inputContainerLabel}>Category</Text>
           <View style={styles.pickerWrapper}>
             <View style={styles.pickerContainer}>
               <DropdownComponent
@@ -155,7 +162,7 @@ export default function AddFeedback() {
           </View>
         </View>
         <View style={styles.inputContainer}>
-          <Text style={styles.inputContainerLabel}>Select Product</Text>
+          <Text style={styles.inputContainerLabel}>Product</Text>
           <View style={styles.pickerWrapper}>
             <View style={styles.pickerContainer}>
               <DropdownComponent
@@ -168,11 +175,11 @@ export default function AddFeedback() {
           </View>
         </View>
         <View style={styles.inputContainer}>
-          <Text style={styles.inputContainerLabel}>Enter Reference</Text>
+          <Text style={styles.inputContainerLabel}>Reference</Text>
           <TextInput
             style={styles.inputContainerInputFeild}
             placeholderTextColor="gray"
-            placeholder="Optional"
+            placeholder="wheres you find it"
             value={reference}
             onChangeText={e => {
               setReference(e);

@@ -48,8 +48,6 @@ export default function FlatlistTabView({paramsData}) {
       title: 'Local',
       params: {
         data: paramsData.data.local,
-        setModalVisible: paramsData.setModalVisible,
-        setModalData: paramsData.setModalData,
       },
     });
   }
@@ -59,8 +57,6 @@ export default function FlatlistTabView({paramsData}) {
       title: 'International',
       params: {
         data: paramsData.data.international,
-        setModalVisible: paramsData.setModalVisible,
-        setModalData: paramsData.setModalData,
       },
     });
   }

@@ -91,12 +91,13 @@ export default function LoginUser(props) {
             secureTextEntry={true}
           />
         </View>
-        <TouchableOpacity
-          style={styles.btnContainer}
-          onPress={PostData}
-          disabled={!isButtonEnable}>
-          <Text style={styles.btnText}>Submit</Text>
-        </TouchableOpacity>
+        <View style={styles.btnContainer}>
+          <TouchableOpacity
+            onPress={PostData}
+            disabled={!isButtonEnable}>
+            <Text style={styles.btnText}>Submit</Text>
+          </TouchableOpacity>
+        </View>
       </View>
       <Toast />
     </View>

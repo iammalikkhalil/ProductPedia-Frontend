@@ -10,8 +10,13 @@ import {
 } from 'react-native';
 import Ip from '../assets/Ip';
 import Colors from '../assets/Colors';
+import {useDispatch} from 'react-redux';
+
+import {TogleModelVisibility} from '../redux/actions/Action';
 
 const ProductModel = ({props}) => {
+  const dispatch = useDispatch();
+
   const companyLogo = Ip + '/images/' + props.item.companyId.companyLogo;
   return (
     <View style={styles.centeredView}>
@@ -20,12 +25,15 @@ const ProductModel = ({props}) => {
         transparent={true}
         visible={true}
         onRequestClose={() => {
-          props.setModalVisible(false)
+          dispatch(TogleModelVisibility(false));
         }}>
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
             <View style={styles.closeIconContainer}>
-              <Pressable onPress={() => props.setModalVisible(false)}>
+              <Pressable
+                onPress={() => {
+                  dispatch(TogleModelVisibility(false));
+                }}>
                 <Text style={styles.closeIcon}>X</Text>
               </Pressable>
             </View>
@@ -41,20 +49,20 @@ const ProductModel = ({props}) => {
                 <Text style={styles.line}>____________________________</Text>
                 <View style={styles.companyDetailContainer}>
                   <View style={styles.companyDetailRow}>
-                    <Text style={styles.label}>Company:</Text>
+                    <Text style={styles.label}>Company: </Text>
                     <Text style={styles.detail}>
                       {props.item.companyId.name}
                     </Text>
                   </View>
                   <View style={styles.companyDetailRow}>
-                    <Text style={styles.label}>Country:</Text>
+                    <Text style={styles.label}>Country: </Text>
                     <Text style={styles.detail}>
                       {props.item.companyId.country.name}
                     </Text>
                   </View>
                 </View>
                 <Text style={styles.discription}>
-                  Note:{props.item.discription}
+                  Note: {props.item.discription}
                 </Text>
               </View>
             </View>

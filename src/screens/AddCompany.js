@@ -114,7 +114,7 @@ export default function AddCompany(props) {
     <View>
       <View style={styles.container}>
         <View style={styles.inputContainer}>
-          <Text style={styles.inputContainerLabel}>Enter Company Name</Text>
+          <Text style={styles.inputContainerLabel}>Company Name</Text>
           <TextInput
             style={styles.inputContainerInputFeild}
             placeholderTextColor="gray"
@@ -127,7 +127,7 @@ export default function AddCompany(props) {
           />
         </View>
         <View style={styles.inputContainer}>
-          <Text style={styles.inputContainerLabel}>Enter Discription</Text>
+          <Text style={styles.inputContainerLabel}>Discription</Text>
           <TextInput
             style={styles.inputContainerInputFeild}
             placeholderTextColor="gray"
@@ -140,7 +140,7 @@ export default function AddCompany(props) {
           />
         </View>
         <View style={styles.inputContainer}>
-          <Text style={styles.inputContainerLabel}>Select Country</Text>
+          <Text style={styles.inputContainerLabel}>Country</Text>
           <View style={styles.pickerWrapper}>
             <View style={styles.pickerContainer}>
               <DropdownComponent
@@ -154,20 +154,21 @@ export default function AddCompany(props) {
         </View>
         <Text style={styles.imagePickerFileName}>{companyLogo.fileName}</Text>
         <View style={styles.inputContainer}>
-          <Text style={styles.inputContainerLabel}>Choose Company Logo</Text>
+          <Text style={styles.inputContainerLabel}>Company Logo</Text>
           <TouchableOpacity
             style={styles.imagePickerBtn}
             onPress={openImagePicker}
             disabled={!isSubmitButtonEnable}>
-            <Text style={styles.imagePickerBtnText}>Choose Company Logo</Text>
+            <Text style={styles.imagePickerBtnText}>Browse</Text>
           </TouchableOpacity>
         </View>
-        <TouchableOpacity
-          style={styles.btnContainer}
-          onPress={PostData}
-          disabled={!isSubmitButtonEnable}>
-          <Text style={styles.btnText}>Submit</Text>
-        </TouchableOpacity>
+        <View style={styles.btnContainer}>
+          <TouchableOpacity
+            onPress={PostData}
+            disabled={!isSubmitButtonEnable}>
+            <Text style={styles.btnText}>Submit</Text>
+          </TouchableOpacity>
+        </View>
       </View>
       <Toast />
     </View>

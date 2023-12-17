@@ -68,7 +68,7 @@ export default function AddProduct() {
     <View>
       <View style={styles.container}>
         <View style={styles.inputContainer}>
-          <Text style={styles.inputContainerLabel}>Enter Company Name</Text>
+          <Text style={styles.inputContainerLabel}>Company Name</Text>
           <TextInput
             style={styles.inputContainerInputFeild}
             placeholderTextColor="gray"
@@ -81,7 +81,7 @@ export default function AddProduct() {
           />
         </View>
         <View style={styles.inputContainer}>
-          <Text style={styles.inputContainerLabel}>Enter Discription</Text>
+          <Text style={styles.inputContainerLabel}>Discription</Text>
           <TextInput
             style={styles.inputContainerInputFeild}
             placeholderTextColor="gray"
@@ -94,7 +94,7 @@ export default function AddProduct() {
           />
         </View>
         <View style={styles.inputContainer}>
-          <Text style={styles.inputContainerLabel}>Select Category</Text>
+          <Text style={styles.inputContainerLabel}>Category</Text>
           <View style={styles.pickerWrapper}>
             <View style={styles.pickerContainer}>
               <DropdownComponent
@@ -107,7 +107,7 @@ export default function AddProduct() {
           </View>
         </View>
         <View style={styles.inputContainer}>
-          <Text style={styles.inputContainerLabel}>Select Company</Text>
+          <Text style={styles.inputContainerLabel}>Company</Text>
           <View style={styles.pickerWrapper}>
             <View style={styles.pickerContainer}>
               <DropdownComponent
@@ -119,12 +119,13 @@ export default function AddProduct() {
             </View>
           </View>
         </View>
-        <TouchableOpacity
-          style={styles.btnContainer}
-          onPress={PostData}
-          disabled={!isSubmitButtonEnable}>
-          <Text style={styles.btnText}>Submit</Text>
-        </TouchableOpacity>
+        <View style={styles.btnContainer}>
+          <TouchableOpacity
+            onPress={PostData}
+            disabled={!isSubmitButtonEnable}>
+            <Text style={styles.btnText}>Submit</Text>
+          </TouchableOpacity>
+        </View>
       </View>
       <Toast />
     </View>

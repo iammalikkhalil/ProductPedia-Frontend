@@ -1,4 +1,4 @@
-import {ADD_CATEGORIES, ADD_COMPANIES, ADD_COUNTRIES, GET_CATEGORIES, GET_COMPANIES, GET_COUNTRIES, GET_PRODUCTS} from '../constants/Constants';
+import {ADD_CATEGORIES, ADD_COMPANIES, ADD_COUNTRIES, GET_CATEGORIES, GET_COMPANIES, GET_COUNTRIES, GET_PRODUCTS, PARAMS_DATA, TOGGLE_MODEL_VISIBLILITY} from '../constants/Constants';
 
 export const GetCategories= () => {
   return {type: GET_CATEGORIES};
@@ -31,4 +31,10 @@ export const GetCountries= () => {
   return {type: GET_COUNTRIES};
 };
 
+export const TogleModelVisibility = payload => {
+  return {type: TOGGLE_MODEL_VISIBLILITY, data: payload};
+};
 
+export const ParamsData = payload => {
+  return {type: PARAMS_DATA, data: payload};
+};

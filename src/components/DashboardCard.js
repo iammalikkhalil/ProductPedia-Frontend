@@ -7,7 +7,11 @@ export default function DashboardCard({cardData}) {
   const image = `${Ip}/images/${cardData.iconName}.png`;
   return (
     <View style={styles.cardContainer}>
-      <Image source={{uri: image}} style={styles.icon} />
+      {cardData.iconName == 'barcode' ? (
+        <Image source={require('../assets/icons/barcodeScan.png')} style={styles.icon} />
+      ) : (
+        <Image source={{uri: image}} style={styles.icon} />
+      )}
       <Text style={[styles.cardText, {color: cardData.textColor}]}>
         {cardData.text}
       </Text>

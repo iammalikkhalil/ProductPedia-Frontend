@@ -268,9 +268,11 @@ export default function AddPurchases(props) {
         </View>
       </View>
 
-      <TouchableOpacity style={styles.btnContainer} onPress={PostData}>
-        <Text style={styles.btnText}>Submit</Text>
-      </TouchableOpacity>
+      <View style={styles.btnContainer}>
+        <TouchableOpacity onPress={PostData}>
+          <Text style={styles.btnText}>Submit</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }

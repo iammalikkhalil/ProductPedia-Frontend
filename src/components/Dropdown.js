@@ -24,7 +24,7 @@ const DropdownComponent = ({propsData}) => {
         maxHeight={300}
         labelField="name"
         valueField="_id"
-        placeholder={'Select item'}
+        placeholder={'Select...'}
         searchPlaceholder="Search..."
         value={value}
         onChange={item => {

@@ -26,7 +26,7 @@ export default function AdminDashboard(props) {
 
   return (
     <View style={styles.container}>
-      <Header headerText="Dashboard" />
+      <Header headerText="Product Pedia" />
       <View style={styles.body}>
         <View style={styles.cardsRow}>
           <TouchableOpacity
@@ -96,6 +96,21 @@ export default function AdminDashboard(props) {
             <></>
           )}
           {role == 'false' ? (
+            <>
+            <TouchableOpacity
+              style={styles.cardItem}
+              onPress={() => {
+                Navigator('BarcodeScanner');
+              }}>
+              <DashboardCard
+                cardData={{
+                  iconName: 'barcode',
+                  iconColor: Colors.primaryFontColor,
+                  textColor: Colors.primaryFontColor,
+                  text: 'Scan Barcode',
+                }}
+              />
+            </TouchableOpacity>
             <TouchableOpacity
               style={styles.cardItem}
               onPress={() => {
@@ -110,6 +125,7 @@ export default function AdminDashboard(props) {
                 }}
               />
             </TouchableOpacity>
+            </>
           ) : (
             <TouchableOpacity
               style={styles.cardItem}

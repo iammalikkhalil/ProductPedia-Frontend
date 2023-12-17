@@ -1,8 +1,12 @@
 import {StyleSheet, Text, View, FlatList, Pressable} from 'react-native';
 import React, {useState, useEffect} from 'react';
 import ProductCard from './ProductCard';
+import {useDispatch} from 'react-redux';
+
+import {TogleModelVisibility} from '../redux/actions/Action';
 
 export default function Flatlist({paramsData}) {
+  const dispatch = useDispatch();
   let length;
   if (paramsData.data == undefined) {
     length = 1;
@@ -26,7 +30,7 @@ export default function Flatlist({paramsData}) {
       renderItem={({item, index}) => (
         <Pressable
           onPress={() => {
-            paramsData.setModalVisible(true);
+            dispatch(TogleModelVisibility(true));
             paramsData.setModalData(item);
           }}>
           <ProductCard cardData={item} />

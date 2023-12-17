@@ -18,3 +18,7 @@ export const ADD_COMPANIES = "ADD_COMPANIES";
 //countries
 export const GET_COUNTRIES = "GET_COUNTRIES";
 export const ADD_COUNTRIES = "ADD_COUNTRIES";
+
+//props values
+export const TOGGLE_MODEL_VISIBLILITY = "TOGGLE_MODEL_VISIBLILITY";
+export const PARAMS_DATA = "PARAMS_DATA";

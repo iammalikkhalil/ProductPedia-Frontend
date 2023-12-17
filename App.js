@@ -25,6 +25,7 @@ import ProductModel from './src/models/FeedbackModel';
 import FeedbackModel from './src/models/FeedbackModel';
 import FlatlistTabView from './src/components/FlatlistTabView';
 import Flatlist from './src/components/Flatlist';
+import BarcodeScanner from './src/screens/BarcodeScanner';
 export default function App() {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -36,6 +37,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator screenOptions={{headerShown: false}}>
         <Stack.Screen name="Splash" component={Splash} />
+        <Stack.Screen name="BarcodeScanner" component={BarcodeScanner} />
         <Stack.Screen name="FlatlistTabView" component={FlatlistTabView} />
         <Stack.Screen name="Explore" component={Explore} />
         <Stack.Screen name="Flatlist" component={Flatlist} />

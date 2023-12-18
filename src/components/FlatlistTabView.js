@@ -11,8 +11,6 @@ const renderScene = ({route}) => {
       return <TabViewLocalComponent params={route.params} />;
     case 'international':
       return <TabViewInternationalComponent params={route.params} />;
-    case 'no':
-      return <></>;
     default:
       return null;
   }
@@ -28,42 +26,22 @@ const renderTabBar = props => (
 );
 
 export default function FlatlistTabView({paramsData}) {
-  let Llen = paramsData.data.local;
-  let Ilen = paramsData.data.international;
-  if (Llen == undefined || Ilen == undefined) {
-    Llen = 0;
-    Ilen = 0;
-  } else {
-    if (Llen.length == 0) Llen = 0;
-    else Llen = 1;
-
-    if (Ilen.length == 0) Ilen = 0;
-    else Ilen = 1;
-  }
-  const routesArray = [];
-
-  if (Llen != 0) {
-    routesArray.push({
+  const routesArray = [
+    {
       key: 'local',
       title: 'Local',
       params: {
         data: paramsData.data.local,
       },
-    });
-  }
-  if (Ilen != 0) {
-    routesArray.push({
+    },
+    {
       key: 'international',
       title: 'International',
       params: {
         data: paramsData.data.international,
       },
-    });
-  }
-
-  if (Ilen == 0 && Llen == 0) {
-    routesArray.push({key: 'no', title: 'No item Found'});
-  }
+    },
+  ];
 
   const layout = useWindowDimensions();
 
@@ -74,7 +52,7 @@ export default function FlatlistTabView({paramsData}) {
     <TabView
       navigationState={{index, routes}}
       renderScene={renderScene}
-      onIndexChange={setIndex}
+      onIndexChange={setIndex} 
       initialLayout={{width: layout.width}}
       renderTabBar={renderTabBar}
     />

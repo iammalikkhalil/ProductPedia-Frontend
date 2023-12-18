@@ -9,6 +9,7 @@ import {
 import React, {useState, useEffect} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
+import {CommonActions} from '@react-navigation/native';
 
 import Header from '../components/Header';
 import Colors from '../assets/Colors';
@@ -40,7 +41,17 @@ export default function LoginUser(props) {
             text1: response.msg,
           });
           setTimeout(() => {
-            props.navigation.replace('Dashboard', {role: 'true'});
+            props.navigation.dispatch(
+              CommonActions.reset({
+                index: 0,
+                routes: [
+                  {
+                    name: 'Dashboard',
+                    params: {role: 'true'},
+                  },
+                ],
+              }),
+            );
           }, 500);
         } else {
           ShowToast({
@@ -92,9 +103,7 @@ export default function LoginUser(props) {
           />
         </View>
         <View style={styles.btnContainer}>
-          <TouchableOpacity
-            onPress={PostData}
-            disabled={!isButtonEnable}>
+          <TouchableOpacity onPress={PostData} disabled={!isButtonEnable}>
             <Text style={styles.btnText}>Submit</Text>
           </TouchableOpacity>
         </View>

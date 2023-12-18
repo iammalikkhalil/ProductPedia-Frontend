@@ -8,7 +8,7 @@ export default function Disclamier() {
       <View style={styles.disclamierContainer}>
       <Image source={Icon} style={styles.img} />
         <Text style={styles.heading}>Legal Disclamier</Text>
-        <Text style={styles.body}>A disclaimer is a formal statement that lets consumers know that the seller/owner is not subject to any kind of legal liability in certain situations</Text>
+        <Text style={styles.body}>Our app categorizes products based on local and internet-available data. We neither engage in buying/selling nor endorse any products listed. Users are urged to use their judgment; the app provides information, but decisions to use or purchase are at the user's discretion. For any discrepancies found, please provide evidence with feedback. We will thoroughly review and rectify any inaccuracies.</Text>
       </View>
   );
 }

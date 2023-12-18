@@ -76,6 +76,10 @@
         "source": "com.client.app-main-36:/mipmap-xxhdpi/ic_launcher.png"
     },
     {
+        "merged": "com.client.app-merged_res-35:/drawable-mdpi_src_assets_icons_barcodescan.png.flat",
+        "source": "com.client.app-res-29:/drawable-mdpi/src_assets_icons_barcodescan.png"
+    },
+    {
         "merged": "com.client.app-merged_res-35:/mipmap-xxhdpi_ic_launcher_adaptive_fore.png.flat",
         "source": "com.client.app-main-36:/mipmap-xxhdpi/ic_launcher_adaptive_fore.png"
     },

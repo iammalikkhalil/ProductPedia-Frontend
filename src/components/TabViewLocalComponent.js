@@ -21,12 +21,10 @@ export default function TabViewLocalComponent({params}) {
       },
     },
   };
+  const [modelData, setModelData] = useState(dummyModelObj);
+  const [modelVisible, setModelVisible] = useState(false);
+  const [selectedIndex, setSelectedIndex] = useState(0)
 
-  const reduxModelVisiblity = useSelector(
-    state => state.ToggleModelVisibalityReducers,
-  );
-  console.log('reduxModelVisiblity', reduxModelVisiblity);
-  const [modalData, setModalData] = useState(dummyModelObj);
 
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredData, setFilteredData] = useState(params.data);
@@ -40,8 +38,8 @@ export default function TabViewLocalComponent({params}) {
   };
   return (
     <>
-      {reduxModelVisiblity ? (
-        <ProductModel props={{item: modalData}} />
+      {modelVisible ? (
+        <ProductModel props={{item: modelData, setModelVisible: setModelVisible}} />
       ) : (
         <View>
           <TextInput
@@ -54,7 +52,11 @@ export default function TabViewLocalComponent({params}) {
           <Flatlist
             paramsData={{
               data: filteredData,
-              setModalData
+              modelVisible,
+              selectedIndex,
+              setModelData,
+              setModelVisible,
+              setSelectedIndex,
             }}
           />
         </View>

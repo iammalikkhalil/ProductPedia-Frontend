@@ -9,12 +9,12 @@ export default function FeedbackModel({props}) {
         transparent={true}
         visible={true}
         onRequestClose={() => {
-            props.setModalVisible(false)
+            props.setModelVisible(false)
         }}>
         <View style={styles.centeredView}>
-          <View style={styles.modalView}>
+          <View style={styles.modelView}>
             <View style={styles.closeIconContainer}>
-              <Pressable onPress={() => props.setModalVisible(false)}>
+              <Pressable onPress={() => props.setModelVisible(false)}>
                 <Text style={styles.closeIcon}>X</Text>
               </Pressable>
             </View>
@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  modalView: {
+  modelView: {
     paddingBottom: 10,
     width: '80%',
     backgroundColor: 'white',

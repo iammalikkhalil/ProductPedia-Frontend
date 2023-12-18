@@ -7,6 +7,7 @@ import Colors from '../assets/Colors';
 import Disclamier from '../components/Disclamier';
 import AddCountry from './AddCountry';
 import AddCompany from './AddCompany';
+import {ScrollView} from 'react-native-gesture-handler';
 
 export default function AdminDashboard(props) {
   const [role, setRole] = useState(props.route.params.role);
@@ -18,7 +19,7 @@ export default function AdminDashboard(props) {
     try {
       await AsyncStorage.setItem('role', 'false');
     } catch (error) {
-      console.log("getting error in logout", error);
+      console.log('getting error in logout', error);
     } finally {
       props.navigation.replace('Dashboard', {role: 'false'});
     }
@@ -97,34 +98,34 @@ export default function AdminDashboard(props) {
           )}
           {role == 'false' ? (
             <>
-            <TouchableOpacity
-              style={styles.cardItem}
-              onPress={() => {
-                Navigator('BarcodeScanner');
-              }}>
-              <DashboardCard
-                cardData={{
-                  iconName: 'barcode',
-                  iconColor: Colors.primaryFontColor,
-                  textColor: Colors.primaryFontColor,
-                  text: 'Scan Barcode',
-                }}
-              />
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.cardItem}
-              onPress={() => {
-                Navigator('LoginUser');
-              }}>
-              <DashboardCard
-                cardData={{
-                  iconName: 'admin',
-                  iconColor: Colors.primaryFontColor,
-                  textColor: Colors.primaryFontColor,
-                  text: 'Login',
-                }}
-              />
-            </TouchableOpacity>
+              <TouchableOpacity
+                style={styles.cardItem}
+                onPress={() => {
+                  Navigator('BarcodeScanner');
+                }}>
+                <DashboardCard
+                  cardData={{
+                    iconName: 'barcode',
+                    iconColor: Colors.primaryFontColor,
+                    textColor: Colors.primaryFontColor,
+                    text: 'Scan Barcode',
+                  }}
+                />
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={styles.cardItem}
+                onPress={() => {
+                  Navigator('LoginUser');
+                }}>
+                <DashboardCard
+                  cardData={{
+                    iconName: 'admin',
+                    iconColor: Colors.primaryFontColor,
+                    textColor: Colors.primaryFontColor,
+                    text: 'Login',
+                  }}
+                />
+              </TouchableOpacity>
             </>
           ) : (
             <TouchableOpacity

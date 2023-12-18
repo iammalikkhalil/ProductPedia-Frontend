@@ -7,7 +7,6 @@ import Ip from '../assets/Ip';
 export default function ProductCard({cardData}) {
   return (
     <View style={styles.card}>
-      {/* <Image source={{uri: cardImageUrl}} style={styles.profileImage} /> */}
       <View style={styles.details}>
         <Text style={styles.name}>{cardData.name}</Text>
         <View style={styles.discription}>

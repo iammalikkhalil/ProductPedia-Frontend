@@ -100,6 +100,7 @@ export default function AddProduct() {
               <DropdownComponent
                 propsData={{
                   data: categoriesList,
+                  value: selectedCategoryPickerItem,
                   setValue: setSelectedCategoryPickerItem,
                 }}
               />
@@ -114,6 +115,7 @@ export default function AddProduct() {
                 propsData={{
                   data: companiesList,
                   setValue: setSelectedCompanyPickerItem,
+                  value: selectedCompanyPickerItem,
                 }}
               />
             </View>

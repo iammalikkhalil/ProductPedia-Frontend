@@ -3,7 +3,6 @@ import {StyleSheet, Text, View, TextInput} from 'react-native';
 import Flatlist from './Flatlist';
 import Colors from '../assets/Colors';
 
-import {useSelector} from 'react-redux';
 import ProductModel from '../models/ProductModel';
 
 export default function TabViewInternationalComponent({params}) {
@@ -21,12 +20,10 @@ export default function TabViewInternationalComponent({params}) {
       },
     },
   };
-
-  const reduxModelVisiblity = useSelector(
-    state => state.ToggleModelVisibalityReducers,
-  );
-  console.log('reduxModelVisiblity', reduxModelVisiblity);
-  const [modalData, setModalData] = useState(dummyModelObj);
+  const [modelData, setModelData] = useState(dummyModelObj);
+  const [modelVisible, setModelVisible] = useState(false);
+  const [selectedIndex, setSelectedIndex] = useState(0)
+  console.log("selectedIndex", selectedIndex);
 
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredData, setFilteredData] = useState(params.data);
@@ -40,8 +37,8 @@ export default function TabViewInternationalComponent({params}) {
   };
   return (
     <>
-      {reduxModelVisiblity ? (
-        <ProductModel props={{item: modalData}} />
+      {modelVisible ? (
+        <ProductModel props={{item: modelData, setModelVisible}} />
       ) : (
         <View>
           <TextInput
@@ -54,7 +51,11 @@ export default function TabViewInternationalComponent({params}) {
           <Flatlist
             paramsData={{
               data: filteredData,
-              setModalData,
+              modelVisible,
+              setModelData,
+              setModelVisible,
+              selectedIndex,
+              setSelectedIndex,
             }}
           />
         </View>

@@ -95,7 +95,7 @@ export default function AddCompany(props) {
         );
         setCompanyName('');
         setCompanyDiscription('');
-        setSelectedPickerItem('');
+        setSelectedPickerItem({});
         setCompanyLogo({});
       } else {
         ShowToast({
@@ -147,6 +147,7 @@ export default function AddCompany(props) {
                 propsData={{
                   data: countriesList,
                   setValue: setSelectedPickerItem,
+                  value: selectedPickerItem,
                 }}
               />
             </View>

@@ -5,7 +5,6 @@ import {useSelector} from 'react-redux';
 import Colors from '../assets/Colors';
 
 const DropdownComponent = ({propsData}) => {
-  const [value, setValue] = useState(null);
   const [focus, setFocus] = useState(false);
 
   return (
@@ -26,7 +25,7 @@ const DropdownComponent = ({propsData}) => {
         valueField="_id"
         placeholder={'Select...'}
         searchPlaceholder="Search..."
-        value={value}
+        value={propsData.value}
         onChange={item => {
           propsData.setValue(item);
           setFocus(false);

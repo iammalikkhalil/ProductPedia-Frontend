@@ -39,14 +39,14 @@ export default function ShowFeedback() {
   const [feedbacks, setFeedbacks] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isEmpty, setIsEmpty] = useState(false);
-
+  console.log(isEmpty, feedbacks);
   const fetchData = async () => {
     try {
       const response = await axios.get(getFeedbacksApi);
       setFeedbacks(response.data);
       if (response.data.length == 0) {
         setIsEmpty(true);
-      }
+      } else setIsEmpty(false);
     } catch (error) {
       console.log(error);
     } finally {
@@ -66,8 +66,7 @@ export default function ShowFeedback() {
         <View style={styles.container}>
           {isLoading ? (
             <ActivityIndicator size="large" color={Colors.primaryFontColor} />
-          ) : 
-          isEmpty? 
+          ) : !isEmpty ? (
             <FlatList
               data={feedbacks}
               keyExtractor={(item, index) => index.toString()}
@@ -91,8 +90,17 @@ export default function ShowFeedback() {
                   <FeedbackCard cardData={item} />
                 </Pressable>
               )}
-            /> : <Text style= {{color: Colors.primaryFontColor, textAlign: "center", margin: 20}}>No Feedbacks Found</Text>
-          }
+            />
+          ) : (
+            <Text
+              style={{
+                color: Colors.primaryFontColor,
+                textAlign: 'center',
+                margin: 20,
+              }}>
+              No Feedbacks Found
+            </Text>
+          )}
         </View>
       )}
     </>

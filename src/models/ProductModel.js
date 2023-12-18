@@ -10,13 +10,8 @@ import {
 } from 'react-native';
 import Ip from '../assets/Ip';
 import Colors from '../assets/Colors';
-import {useDispatch} from 'react-redux';
-
-import {TogleModelVisibility} from '../redux/actions/Action';
 
 const ProductModel = ({props}) => {
-  const dispatch = useDispatch();
-
   const companyLogo = Ip + '/images/' + props.item.companyId.companyLogo;
   return (
     <View style={styles.centeredView}>
@@ -25,14 +20,14 @@ const ProductModel = ({props}) => {
         transparent={true}
         visible={true}
         onRequestClose={() => {
-          dispatch(TogleModelVisibility(false));
+          props.setModelVisible(false);
         }}>
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
             <View style={styles.closeIconContainer}>
               <Pressable
                 onPress={() => {
-                  dispatch(TogleModelVisibility(false));
+                  props.setModelVisible(false);
                 }}>
                 <Text style={styles.closeIcon}>X</Text>
               </Pressable>

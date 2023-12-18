@@ -1,4 +1,4 @@
-#Fri Dec 15 12:09:24 PKT 2023
+#Mon Dec 18 15:15:27 PKT 2023
 base.1=D\:\\ReactNative\\Projects\\ProductPedia\\client\\android\\app\\build\\intermediates\\dex\\release\\mergeDexRelease\\classes2.dex
 path.1=classes2.dex
 base.0=D\:\\ReactNative\\Projects\\ProductPedia\\client\\android\\app\\build\\intermediates\\dex\\release\\mergeDexRelease\\classes.dex

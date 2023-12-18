@@ -29,9 +29,7 @@ export default function AddFeedback() {
   }, [selectedCategory]);
 
   async function getProducts() {
-    if (Object.keys(selectedCategory).length == 0) {
-      console.log('Empty !!');
-    } else {
+    if (Object.keys(selectedCategory).length != 0) {
       try {
         const response = await axios.put(
           getFilteredProductsApi,
@@ -45,9 +43,11 @@ export default function AddFeedback() {
             },
           },
         );
-        const combinedArray = [...response.data.local, ...response.data.international];
+        const combinedArray = [
+          ...response.data.local,
+          ...response.data.international,
+        ];
         setProducts(combinedArray);
-        console.log(combinedArray);
       } catch (error) {
         console.error('Error getting products:', error);
       }
@@ -77,7 +77,7 @@ export default function AddFeedback() {
           reference: reference,
           discription: discription,
         };
-        let response = await axios.post(postproductApi, obj, {
+        let response = await axios.post(postFeedbackApi, obj, {
           'Content-Type': 'application/json',
         });
         if (response.status == 200) {
@@ -88,8 +88,8 @@ export default function AddFeedback() {
           setName('');
           setEmail('');
           setPhone('');
-          setSelectedCategory(null);
-          setSelectedProduct(null);
+          setSelectedCategory({});
+          setSelectedProduct({});
           setReference('');
           setDiscription('');
         } else {
@@ -156,6 +156,7 @@ export default function AddFeedback() {
                 propsData={{
                   data: categoriesList,
                   setValue: setSelectedCategory,
+                  value: selectedCategory,
                 }}
               />
             </View>
@@ -169,6 +170,7 @@ export default function AddFeedback() {
                 propsData={{
                   data: products,
                   setValue: setSelectedProduct,
+                  value: selectedProduct,
                 }}
               />
             </View>
@@ -201,12 +203,11 @@ export default function AddFeedback() {
             keyboardType="default"
           />
         </View>
-        <TouchableOpacity
-          style={styles.btnContainer}
-          onPress={PostData}
-          disabled={!isSubmitButtonEnable}>
-          <Text style={styles.btnText}>Submit</Text>
-        </TouchableOpacity>
+        <View style={styles.btnContainer}>
+          <TouchableOpacity onPress={PostData} disabled={!isSubmitButtonEnable}>
+            <Text style={styles.btnText}>Submit</Text>
+          </TouchableOpacity>
+        </View>
       </View>
       <Toast />
     </View>

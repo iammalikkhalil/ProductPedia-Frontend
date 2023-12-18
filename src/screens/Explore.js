@@ -102,6 +102,7 @@ export default function Explore() {
             <DropdownComponent
               propsData={{
                 data: pickerData,
+                value: selectedPickerItem,
                 setValue: setSelectedPickerItem,
               }}
             />

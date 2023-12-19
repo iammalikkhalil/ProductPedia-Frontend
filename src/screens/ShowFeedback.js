@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import {useSelector} from 'react-redux';
 import {
   View,
   Text,
@@ -8,14 +7,11 @@ import {
   ActivityIndicator,
   Pressable,
 } from 'react-native';
-import DropdownComponent from '../components/Dropdown';
 
 import axios from 'axios';
-import {RadioButton} from 'react-native-paper';
 
 import {getFeedbacksApi} from '../redux/constants/Apis';
 import FeedbackModel from '../models/FeedbackModel';
-import ProductCard from '../components/ProductCard';
 import FeedbackCard from '../components/FeedbackCard';
 import Colors from '../assets/Colors';
 export default function ShowFeedback() {
@@ -34,8 +30,8 @@ export default function ShowFeedback() {
     },
   };
 
-  const [modalVisible, setModalVisible] = useState(false);
-  const [modalData, setModalData] = useState(dummyModelObj);
+  const [modelVisible, setModelVisible] = useState(false);
+  const [modelData, setMedalData] = useState(dummyModelObj);
   const [feedbacks, setFeedbacks] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isEmpty, setIsEmpty] = useState(false);
@@ -59,49 +55,48 @@ export default function ShowFeedback() {
 
   return (
     <>
-      {modalVisible ? (
-        <FeedbackModel props={{setModalVisible, item: modalData}} />
-      ) : (
-        <View style={styles.container}>
-          {isLoading ? (
-            <ActivityIndicator size="large" color={Colors.primaryFontColor} />
-          ) : !isEmpty ? (
-            <FlatList
-              data={feedbacks}
-              keyExtractor={(item, index) => index.toString()}
-              ListEmptyComponent={() => (
-                <Text
-                  style={{
-                    textAlign: 'center',
-                    padding: 20,
-                    color: Colors.primaryFontColor,
-                    display: isEmpty ? 'flex' : 'none',
-                  }}>
-                  No Feedback Found
-                </Text>
-              )}
-              renderItem={({item, index}) => (
-                <Pressable
-                  onPress={() => {
-                    setModalVisible(true);
-                    setModalData(item);
-                  }}>
-                  <FeedbackCard cardData={item} />
-                </Pressable>
-              )}
-            />
-          ) : (
-            <Text
-              style={{
-                color: Colors.primaryFontColor,
-                textAlign: 'center',
-                margin: 20,
-              }}>
-              No Feedbacks Found
-            </Text>
-          )}
-        </View>
-      )}
+      {modelVisible ? (
+        <FeedbackModel props={{setModelVisible, item: modelData}} />
+      ) : null}
+      <View style={styles.container}>
+        {isLoading ? (
+          <ActivityIndicator size="large" color={Colors.primaryFontColor} />
+        ) : !isEmpty ? (
+          <FlatList
+            data={feedbacks}
+            keyExtractor={(item, index) => index.toString()}
+            ListEmptyComponent={() => (
+              <Text
+                style={{
+                  textAlign: 'center',
+                  padding: 20,
+                  color: Colors.primaryFontColor,
+                  display: isEmpty ? 'flex' : 'none',
+                }}>
+                No Feedback Found
+              </Text>
+            )}
+            renderItem={({item, index}) => (
+              <Pressable
+                onPress={() => {
+                  setModelVisible(true);
+                  setMedalData(item);
+                }}>
+                <FeedbackCard cardData={item} />
+              </Pressable>
+            )}
+          />
+        ) : (
+          <Text
+            style={{
+              color: Colors.primaryFontColor,
+              textAlign: 'center',
+              margin: 20,
+            }}>
+            No Feedbacks Found
+          </Text>
+        )}
+      </View>
     </>
   );
 }

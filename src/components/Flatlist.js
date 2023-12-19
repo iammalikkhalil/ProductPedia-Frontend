@@ -45,6 +45,7 @@ export default function Flatlist({paramsData}) {
           style={{
             textAlign: 'center',
             padding: 20,
+            color: Colors.primaryFontColor,
             display: length == 0 ? 'flex' : 'none',
           }}>
           No Item Found

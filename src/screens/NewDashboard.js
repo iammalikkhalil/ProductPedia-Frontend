@@ -22,7 +22,8 @@ export default function NewDashboard(props) {
   const [role, setRole] = useState(props.route.params.role);
   let booleanRole = role === 'true';
 
-  const [modelVisible, setModelVisible] = useState(booleanRole);
+  // const [modelVisible, setModelVisible] = useState(booleanRole);
+  const [modelVisible, setModelVisible] = useState(false);
   const [drawerVisible, setDrawerVisible] = useState(false);
 
   function Navigator(params) {

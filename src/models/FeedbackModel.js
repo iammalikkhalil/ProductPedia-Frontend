@@ -9,7 +9,7 @@ export default function FeedbackModel({props}) {
         transparent={true}
         visible={true}
         onRequestClose={() => {
-            props.setModelVisible(false)
+          props.setModelVisible(false);
         }}>
         <View style={styles.centeredView}>
           <View style={styles.modelView}>
@@ -70,6 +70,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: 'rgba(255,255,255, 0.8)',
   },
   modelView: {
     paddingBottom: 10,

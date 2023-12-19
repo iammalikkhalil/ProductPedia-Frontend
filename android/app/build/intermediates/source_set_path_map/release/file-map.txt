@@ -40,7 +40,9 @@ com.client.app-packaged_res-38 D:\ReactNative\Projects\ProductPedia\client\node_
 com.client.app-packaged_res-39 D:\ReactNative\Projects\ProductPedia\client\node_modules\@react-native-picker\picker\android\build\intermediates\packaged_res\release
 com.client.app-packaged_res-40 D:\ReactNative\Projects\ProductPedia\client\node_modules\react-native-gesture-handler\android\build\intermediates\packaged_res\release
 com.client.app-packaged_res-41 D:\ReactNative\Projects\ProductPedia\client\node_modules\react-native-image-picker\android\build\intermediates\packaged_res\release
-com.client.app-packaged_res-42 D:\ReactNative\Projects\ProductPedia\client\node_modules\react-native-pager-view\android\build\intermediates\packaged_res\release
-com.client.app-packaged_res-43 D:\ReactNative\Projects\ProductPedia\client\node_modules\react-native-safe-area-context\android\build\intermediates\packaged_res\release
-com.client.app-packaged_res-44 D:\ReactNative\Projects\ProductPedia\client\node_modules\react-native-screens\android\build\intermediates\packaged_res\release
-com.client.app-packaged_res-45 D:\ReactNative\Projects\ProductPedia\client\node_modules\react-native-svg\android\build\intermediates\packaged_res\release
+com.client.app-packaged_res-42 D:\ReactNative\Projects\ProductPedia\client\node_modules\react-native-linear-gradient\android\build\intermediates\packaged_res\release
+com.client.app-packaged_res-43 D:\ReactNative\Projects\ProductPedia\client\node_modules\react-native-pager-view\android\build\intermediates\packaged_res\release
+com.client.app-packaged_res-44 D:\ReactNative\Projects\ProductPedia\client\node_modules\react-native-safe-area-context\android\build\intermediates\packaged_res\release
+com.client.app-packaged_res-45 D:\ReactNative\Projects\ProductPedia\client\node_modules\react-native-screens\android\build\intermediates\packaged_res\release
+com.client.app-packaged_res-46 D:\ReactNative\Projects\ProductPedia\client\node_modules\react-native-svg\android\build\intermediates\packaged_res\release
+com.client.app-packaged_res-47 D:\ReactNative\Projects\ProductPedia\client\node_modules\react-native-vector-icons\android\build\intermediates\packaged_res\release

@@ -8,10 +8,12 @@ MERGED from [:react-native-async-storage_async-storage] D:\ReactNative\Projects\
 MERGED from [:react-native-picker_picker] D:\ReactNative\Projects\ProductPedia\client\node_modules\@react-native-picker\picker\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:2:1-7:12
 MERGED from [:react-native-gesture-handler] D:\ReactNative\Projects\ProductPedia\client\node_modules\react-native-gesture-handler\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:2:1-7:12
 MERGED from [:react-native-image-picker] D:\ReactNative\Projects\ProductPedia\client\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:2:1-19:12
+MERGED from [:react-native-linear-gradient] D:\ReactNative\Projects\ProductPedia\client\node_modules\react-native-linear-gradient\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:2:1-7:12
 MERGED from [:react-native-pager-view] D:\ReactNative\Projects\ProductPedia\client\node_modules\react-native-pager-view\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:2:1-7:12
 MERGED from [:react-native-safe-area-context] D:\ReactNative\Projects\ProductPedia\client\node_modules\react-native-safe-area-context\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:2:1-7:12
 MERGED from [:react-native-screens] D:\ReactNative\Projects\ProductPedia\client\node_modules\react-native-screens\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:2:1-7:12
 MERGED from [:react-native-svg] D:\ReactNative\Projects\ProductPedia\client\node_modules\react-native-svg\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:2:1-7:12
+MERGED from [:react-native-vector-icons] D:\ReactNative\Projects\ProductPedia\client\node_modules\react-native-vector-icons\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:2:1-7:12
 MERGED from [com.facebook.react:react-android:0.72.7] C:\Users\LALA\.gradle\caches\transforms-3\46be148fee276fe35800241d612f2176\transformed\jetified-react-android-0.72.7-release\AndroidManifest.xml:2:1-7:12
 MERGED from [com.facebook.react:hermes-android:0.72.7] C:\Users\LALA\.gradle\caches\transforms-3\508b90dde16c856763b3dfa5edb32fef\transformed\jetified-hermes-android-0.72.7-release\AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.android.material:material:1.9.0] C:\Users\LALA\.gradle\caches\transforms-3\dd33cdba76574cd6269c5bd29e434651\transformed\material-1.9.0\AndroidManifest.xml:17:1-26:12
@@ -173,6 +175,8 @@ MERGED from [:react-native-gesture-handler] D:\ReactNative\Projects\ProductPedia
 MERGED from [:react-native-gesture-handler] D:\ReactNative\Projects\ProductPedia\client\node_modules\react-native-gesture-handler\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-44
 MERGED from [:react-native-image-picker] D:\ReactNative\Projects\ProductPedia\client\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-44
 MERGED from [:react-native-image-picker] D:\ReactNative\Projects\ProductPedia\client\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-44
+MERGED from [:react-native-linear-gradient] D:\ReactNative\Projects\ProductPedia\client\node_modules\react-native-linear-gradient\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-44
+MERGED from [:react-native-linear-gradient] D:\ReactNative\Projects\ProductPedia\client\node_modules\react-native-linear-gradient\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-44
 MERGED from [:react-native-pager-view] D:\ReactNative\Projects\ProductPedia\client\node_modules\react-native-pager-view\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-44
 MERGED from [:react-native-pager-view] D:\ReactNative\Projects\ProductPedia\client\node_modules\react-native-pager-view\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-44
 MERGED from [:react-native-safe-area-context] D:\ReactNative\Projects\ProductPedia\client\node_modules\react-native-safe-area-context\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-44
@@ -181,6 +185,8 @@ MERGED from [:react-native-screens] D:\ReactNative\Projects\ProductPedia\client\
 MERGED from [:react-native-screens] D:\ReactNative\Projects\ProductPedia\client\node_modules\react-native-screens\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-44
 MERGED from [:react-native-svg] D:\ReactNative\Projects\ProductPedia\client\node_modules\react-native-svg\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-44
 MERGED from [:react-native-svg] D:\ReactNative\Projects\ProductPedia\client\node_modules\react-native-svg\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-44
+MERGED from [:react-native-vector-icons] D:\ReactNative\Projects\ProductPedia\client\node_modules\react-native-vector-icons\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-44
+MERGED from [:react-native-vector-icons] D:\ReactNative\Projects\ProductPedia\client\node_modules\react-native-vector-icons\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-44
 MERGED from [com.facebook.react:react-android:0.72.7] C:\Users\LALA\.gradle\caches\transforms-3\46be148fee276fe35800241d612f2176\transformed\jetified-react-android-0.72.7-release\AndroidManifest.xml:5:5-44
 MERGED from [com.facebook.react:react-android:0.72.7] C:\Users\LALA\.gradle\caches\transforms-3\46be148fee276fe35800241d612f2176\transformed\jetified-react-android-0.72.7-release\AndroidManifest.xml:5:5-44
 MERGED from [com.facebook.react:hermes-android:0.72.7] C:\Users\LALA\.gradle\caches\transforms-3\508b90dde16c856763b3dfa5edb32fef\transformed\jetified-hermes-android-0.72.7-release\AndroidManifest.xml:5:5-44

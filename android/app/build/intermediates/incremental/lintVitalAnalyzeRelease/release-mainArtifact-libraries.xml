@@ -91,6 +91,19 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
+      name="D:\ReactNative\Projects\ProductPedia\client\android@@:react-native-linear-gradient::release"
+      jars="D:\ReactNative\Projects\ProductPedia\client\node_modules\react-native-linear-gradient\android\build\.transforms\b53a297ee99356ebaac00a72c36c20da\transformed\out\jars\classes.jar;D:\ReactNative\Projects\ProductPedia\client\node_modules\react-native-linear-gradient\android\build\.transforms\b53a297ee99356ebaac00a72c36c20da\transformed\out\jars\libs\R.jar"
+      resolved="client:react-native-linear-gradient:unspecified"
+      folder="D:\ReactNative\Projects\ProductPedia\client\node_modules\react-native-linear-gradient\android\build\.transforms\b53a297ee99356ebaac00a72c36c20da\transformed\out"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
       name="D:\ReactNative\Projects\ProductPedia\client\android@@:react-native-safe-area-context::release"
       jars="D:\ReactNative\Projects\ProductPedia\client\node_modules\react-native-safe-area-context\android\build\.transforms\b78f9e3d888a374dd506bba9458f60b4\transformed\out\jars\classes.jar;D:\ReactNative\Projects\ProductPedia\client\node_modules\react-native-safe-area-context\android\build\.transforms\b78f9e3d888a374dd506bba9458f60b4\transformed\out\jars\libs\R.jar"
       resolved="client:react-native-safe-area-context:unspecified"
@@ -121,6 +134,19 @@
       jars="D:\ReactNative\Projects\ProductPedia\client\node_modules\react-native-svg\android\build\.transforms\cf119dda712de3e21a379ec99a6de61e\transformed\out\jars\classes.jar;D:\ReactNative\Projects\ProductPedia\client\node_modules\react-native-svg\android\build\.transforms\cf119dda712de3e21a379ec99a6de61e\transformed\out\jars\libs\R.jar"
       resolved="client:react-native-svg:unspecified"
       folder="D:\ReactNative\Projects\ProductPedia\client\node_modules\react-native-svg\android\build\.transforms\cf119dda712de3e21a379ec99a6de61e\transformed\out"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="D:\ReactNative\Projects\ProductPedia\client\android@@:react-native-vector-icons::release"
+      jars="D:\ReactNative\Projects\ProductPedia\client\node_modules\react-native-vector-icons\android\build\.transforms\4eadaebfcbb9575591ea17519471edf5\transformed\out\jars\classes.jar;D:\ReactNative\Projects\ProductPedia\client\node_modules\react-native-vector-icons\android\build\.transforms\4eadaebfcbb9575591ea17519471edf5\transformed\out\jars\libs\R.jar"
+      resolved="client:react-native-vector-icons:unspecified"
+      folder="D:\ReactNative\Projects\ProductPedia\client\node_modules\react-native-vector-icons\android\build\.transforms\4eadaebfcbb9575591ea17519471edf5\transformed\out"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"

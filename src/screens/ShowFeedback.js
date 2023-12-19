@@ -39,7 +39,6 @@ export default function ShowFeedback() {
   const [feedbacks, setFeedbacks] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isEmpty, setIsEmpty] = useState(false);
-  console.log(isEmpty, feedbacks);
   const fetchData = async () => {
     try {
       const response = await axios.get(getFeedbacksApi);

@@ -26,6 +26,11 @@ import FeedbackModel from './src/models/FeedbackModel';
 import FlatlistTabView from './src/components/FlatlistTabView';
 import Flatlist from './src/components/Flatlist';
 import BarcodeScanner from './src/screens/BarcodeScanner';
+import NewDashboardCard from './src/components/NewDashboardCard';
+import NewDashboard from './src/screens/NewDashboard';
+import DisclamierModel from './src/models/DisclamerModel'
+import DrawerModel from './src/models/DrawerModel';
+
 export default function App() {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -37,6 +42,8 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator screenOptions={{headerShown: false}}>
         <Stack.Screen name="Splash" component={Splash} />
+        <Stack.Screen name="DrawerModel" component={DrawerModel} />
+        <Stack.Screen name="NewDashboard" component={NewDashboard} />
         <Stack.Screen name="BarcodeScanner" component={BarcodeScanner} />
         <Stack.Screen name="FlatlistTabView" component={FlatlistTabView} />
         <Stack.Screen name="Explore" component={Explore} />

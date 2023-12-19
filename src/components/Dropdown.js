@@ -38,11 +38,8 @@ const DropdownComponent = ({propsData}) => {
 export default DropdownComponent;
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: Colors.primaryBgColor,
-  },
   dropdown: {
-    color: 'red',
+    color: Colors.primaryFontColor,
     height: 50,
     borderRadius: 8,
     paddingHorizontal: 8,

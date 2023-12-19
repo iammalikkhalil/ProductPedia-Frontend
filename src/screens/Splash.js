@@ -8,7 +8,7 @@ export default Splash = ({navigation}) => {
 
   async function checkRole() {
     const value = await AsyncStorage.getItem('role');
-    console.log(value);
+    console.log("async value: ",value);
     if (value != null) {
       if (value == 'true') {
         setRole('true');
@@ -27,7 +27,7 @@ export default Splash = ({navigation}) => {
   useEffect(() => {
     if (role != '') {
       setTimeout(() => {
-        navigation.replace('Dashboard', {role: role});
+        navigation.replace('NewDashboard', {role: role});
       }, 2000);
     }
   }, [role]);

@@ -46,7 +46,7 @@ export default function LoginUser(props) {
                 index: 0,
                 routes: [
                   {
-                    name: 'Dashboard',
+                    name: 'NewDashboard',
                     params: {role: 'true'},
                   },
                 ],

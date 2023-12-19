@@ -19,6 +19,8 @@ import com.reactnativecommunity.picker.RNCPickerPackage;
 import com.swmansion.gesturehandler.RNGestureHandlerPackage;
 // react-native-image-picker
 import com.imagepicker.ImagePickerPackage;
+// react-native-linear-gradient
+import com.BV.LinearGradient.LinearGradientPackage;
 // react-native-pager-view
 import com.reactnativepagerview.PagerViewPackage;
 // react-native-safe-area-context
@@ -27,6 +29,8 @@ import com.th3rdwave.safeareacontext.SafeAreaContextPackage;
 import com.swmansion.rnscreens.RNScreensPackage;
 // react-native-svg
 import com.horcrux.svg.SvgPackage;
+// react-native-vector-icons
+import com.oblador.vectoricons.VectorIconsPackage;
 
 public class PackageList {
   private Application application;
@@ -76,10 +80,12 @@ public class PackageList {
       new RNCPickerPackage(),
       new RNGestureHandlerPackage(),
       new ImagePickerPackage(),
+      new LinearGradientPackage(),
       new PagerViewPackage(),
       new SafeAreaContextPackage(),
       new RNScreensPackage(),
-      new SvgPackage()
+      new SvgPackage(),
+      new VectorIconsPackage()
     ));
   }
 }

@@ -12,7 +12,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import Icon from 'react-native-vector-icons/Octicons';
 import Colors from '../assets/Colors';
 import LinearGradient from 'react-native-linear-gradient';
-import NewHeader from './NewHeader';
+import NewHeader from '../components/NewHeader';
 import {ScrollView, GestureHandlerRootView} from 'react-native-gesture-handler';
 import NewDisclaimer from '../components/NewDisclaimer';
 import DisclamerModel from '../models/DisclamerModel';

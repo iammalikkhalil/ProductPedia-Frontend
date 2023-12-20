@@ -29,7 +29,7 @@ export default function FlatlistTabView({paramsData}) {
   const routesArray = [
     {
       key: 'local',
-      title: 'Local',
+      title: 'Paksitani',
       params: {
         data: paramsData.data.local,
       },

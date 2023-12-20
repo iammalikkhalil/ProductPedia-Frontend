@@ -22,9 +22,6 @@ import Flatlist from '../components/Flatlist';
 import FlatlistTabView from '../components/FlatlistTabView';
 import Colors from '../assets/Colors';
 export default function Explore() {
-
-
-
   const categoriesList = useSelector(state => state.CategoryReducers);
   const companiesList = useSelector(state => state.CompanyReducers);
   const [pickerData, setPickerData] = useState([]);
@@ -82,43 +79,56 @@ export default function Explore() {
   }, [selectedPickerItem]);
 
   return (
-        <View style={styles.container}>
-          <View style={styles.radioButtonContainer}>
-            <Text style = {{color: Colors.primaryFontColor}}>Search by </Text>
-            <RadioButton.Item
-              label="Category"
-              value="category"
-              status={sortBy == 'category' ? 'checked' : 'unchecked'}
-              onPress={() => handleSortChange('category')}
-            />
-            <RadioButton.Item
-              label="Company"
-              value="company"
-              status={sortBy == 'company' ? 'checked' : 'unchecked'}
-              onPress={() => handleSortChange('company')}
-            />
-          </View>
-          <View style={styles.pickerContainer}>
-            <DropdownComponent
-              propsData={{
-                data: pickerData,
-                value: selectedPickerItem,
-                setValue: setSelectedPickerItem,
-              }}
-            />
-          </View>
-          {isLoading ? (
-            <ActivityIndicator size="large" color={Colors.primaryFontColor} />
-          ) : isPickerValueSelected ? (
-            <FlatlistTabView
-              paramsData={{
-                data: filteredProducts,
-              }}
-            />
-          ) : (
-            <></>
-          )}
-        </View>
+    <View style={styles.container}>
+      <View style={styles.radioButtonContainer}>
+        <Text style={{color: Colors.primaryFontColor}}>Search by </Text>
+        <RadioButton.Item
+          label="Category"
+          value="category"
+          status={sortBy == 'category' ? 'checked' : 'unchecked'}
+          onPress={() => handleSortChange('category')}
+        />
+        <RadioButton.Item
+          label="Company"
+          value="company"
+          status={sortBy == 'company' ? 'checked' : 'unchecked'}
+          onPress={() => handleSortChange('company')}
+        />
+      </View>
+      <View style={styles.pickerContainer}>
+        <DropdownComponent
+          propsData={{
+            data: pickerData,
+            value: selectedPickerItem,
+            setValue: setSelectedPickerItem,
+          }}
+        />
+      </View>
+
+      {!isPickerValueSelected ? (
+        <Text
+          style={{
+            textAlign: 'center',
+            padding: 20,
+            fontSize: 15,
+            color: Colors.primaryFontColor,
+          }}>
+          Please Select Category
+        </Text>
+      ) : null}
+
+      {isLoading ? (
+        <ActivityIndicator size="large" color={Colors.primaryFontColor} />
+      ) : isPickerValueSelected ? (
+        <FlatlistTabView
+          paramsData={{
+            data: filteredProducts,
+          }}
+        />
+      ) : (
+        <></>
+      )}
+    </View>
   );
 }
 const styles = StyleSheet.create({

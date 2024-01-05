@@ -5,7 +5,7 @@ import { ProductReducers } from "./ProductReducers"
 import { CompanyReducers } from "./CompanyReducers"
 import { CountryReducers } from "./CountryReducers"
 import {ToggleModelVisibalityReducers} from './ToggleModelVisibalityReducers'
-import {ModelReducers} from './ModelReducers'
+import {UpdateProductsModelDataReducers} from './UpdateProductsModelDataReducers'
 
 export default combineReducers({
     reducer,
@@ -14,6 +14,6 @@ export default combineReducers({
     CompanyReducers,
     CountryReducers,
     ToggleModelVisibalityReducers,
-    ModelReducers
+    UpdateProductsModelDataReducers,
     // ParamsReducers,
 })

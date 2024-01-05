@@ -17,35 +17,50 @@ import {RadioButton, ToggleButton} from 'react-native-paper';
 
 import ProductCard from '../components/ProductCard';
 import ProductModel from '../models/ProductModel';
-import {getFilteredProductsApi} from '../redux/constants/Apis';
+import {
+  getFilteredProductsApi,
+  getSubCategoriesByCategoryIdApi,
+} from '../redux/constants/Apis';
 import Flatlist from '../components/Flatlist';
 import FlatlistTabView from '../components/FlatlistTabView';
 import Colors from '../assets/Colors';
+import darkColors from 'react-native-elements/dist/config/colorsDark';
 export default function Explore() {
   const categoriesList = useSelector(state => state.CategoryReducers);
   const companiesList = useSelector(state => state.CompanyReducers);
-  const [pickerData, setPickerData] = useState([]);
-  const [isPickerValueSelected, setIsPickerValueSelected] = useState(false);
-  const [selectedPickerItem, setSelectedPickerItem] = useState({});
+  const [mainPickerData, setMainPickerData] = useState([]);
+  const [isTabViewVisible, setIsTabViewVisible] = useState(false);
+  const [selectedMainPickerItem, setSelectedMainPickerItem] = useState({});
+
+  const [subPickerData, setSubPickerData] = useState([]);
+  const [selectedSubPickerItem, setSelectedSubPickerItem] = useState({});
 
   const [sortBy, setSortBy] = useState('category');
+  const [dropdownLabel, setDropdownLabel] = useState('Select Category');
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const handleSortChange = value => {
     setSortBy(value);
-    setIsPickerValueSelected(false);
+    setIsTabViewVisible(false);
     setFilteredProducts([]);
-    setSelectedPickerItem({});
+    setSelectedMainPickerItem({});
   };
 
   async function updateProductsList() {
     try {
       setIsLoading(true);
+      let id = selectedMainPickerItem;
+      let sortByText = 'company';
+      if (sortBy == 'category') {
+        id = selectedSubPickerItem;
+        sortByText = 'subCategory';
+      }
+      console.log(id, sortByText);
       const response = await axios.put(
         getFilteredProductsApi,
         {
-          id: selectedPickerItem._id,
-          sortBy,
+          id: id._id,
+          sortBy: sortByText,
         },
         {
           headers: {
@@ -54,29 +69,74 @@ export default function Explore() {
         },
       );
       setFilteredProducts(response.data);
-      if (Object.keys(selectedPickerItem).length != 0) {
-        setIsPickerValueSelected(true);
-      }
-      setIsLoading(false);
     } catch (error) {
       console.error('Error getting products:', error);
+    } finally {
+      setIsLoading(false);
+
+      if (sortBy == 'category') {
+        if (Object.keys(selectedSubPickerItem).length != 0) {
+          setIsTabViewVisible(true);
+        }
+      } else {
+        if (Object.keys(selectedMainPickerItem).length != 0) {
+          setIsTabViewVisible(true);
+        }
+      }
+    }
+  }
+
+  async function GetSubCategories() {
+    try {
+      setIsLoading(true);
+      const response = await axios.put(
+        getSubCategoriesByCategoryIdApi,
+        {
+          category: selectedMainPickerItem._id,
+        },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        },
+      );
+      setSubPickerData(response.data);
+    } catch (error) {
+      console.error('Error getting products:', error);
+    } finally {
+      setIsLoading(false);
     }
   }
 
   useEffect(() => {
     switch (sortBy) {
       case 'company':
-        setPickerData(companiesList);
+        setMainPickerData(companiesList);
+        setDropdownLabel('Select Company');
         break;
       default:
-        setPickerData(categoriesList);
+        setMainPickerData(categoriesList);
+        setDropdownLabel('Select Category');
         break;
     }
   }, [sortBy]);
 
   useEffect(() => {
-    updateProductsList();
-  }, [selectedPickerItem]);
+    setIsTabViewVisible(false);
+    setSelectedSubPickerItem({});
+    if (sortBy == 'category') {
+      GetSubCategories();
+    } else {
+      updateProductsList();
+    }
+  }, [selectedMainPickerItem]);
+
+  useEffect(() => {
+    setIsTabViewVisible(false);
+    if (Object.keys(selectedSubPickerItem).length != 0) {
+      updateProductsList();
+    }
+  }, [selectedSubPickerItem]);
 
   return (
     <View style={styles.container}>
@@ -95,17 +155,32 @@ export default function Explore() {
           onPress={() => handleSortChange('company')}
         />
       </View>
+
       <View style={styles.pickerContainer}>
         <DropdownComponent
           propsData={{
-            data: pickerData,
-            value: selectedPickerItem,
-            setValue: setSelectedPickerItem,
+            dropdownLabel: dropdownLabel,
+            data: mainPickerData,
+            value: selectedMainPickerItem,
+            setValue: setSelectedMainPickerItem,
           }}
         />
       </View>
 
-      {!isPickerValueSelected ? (
+      {sortBy == 'category' ? (
+        <View style={styles.pickerContainer}>
+          <DropdownComponent
+            propsData={{
+              dropdownLabel: 'Select Subcategory',
+              data: subPickerData,
+              value: selectedSubPickerItem,
+              setValue: setSelectedSubPickerItem,
+            }}
+          />
+        </View>
+      ) : null}
+
+      {!isTabViewVisible ? (
         <Text
           style={{
             textAlign: 'center',
@@ -113,21 +188,19 @@ export default function Explore() {
             fontSize: 15,
             color: Colors.primaryFontColor,
           }}>
-          Please Select Category
+          Please Select {sortBy == 'category' ? "Category and Subcategory" : "Company"}
         </Text>
       ) : null}
 
       {isLoading ? (
         <ActivityIndicator size="large" color={Colors.primaryFontColor} />
-      ) : isPickerValueSelected ? (
+      ) : isTabViewVisible ? (
         <FlatlistTabView
           paramsData={{
             data: filteredProducts,
           }}
         />
-      ) : (
-        <></>
-      )}
+      ) : null}
     </View>
   );
 }

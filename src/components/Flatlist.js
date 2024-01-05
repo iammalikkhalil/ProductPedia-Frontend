@@ -58,7 +58,7 @@ export default function Flatlist({paramsData}) {
             paramsData.setModelVisible(true);
             paramsData.setModelData(item);
           }}>
-          <ProductCard cardData={item} />
+          <ProductCard cardData={{item, setIsUpdateModelVisible: paramsData.setIsUpdateModelVisible}} />
         </Pressable>
       )}
     />

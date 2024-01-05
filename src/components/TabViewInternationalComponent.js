@@ -4,6 +4,7 @@ import Flatlist from './Flatlist';
 import Colors from '../assets/Colors';
 
 import ProductModel from '../models/ProductModel';
+import UpdateProductModel from '../models/UpdateProductModel';
 
 export default function TabViewInternationalComponent({params}) {
   const dummyModelObj = {
@@ -22,8 +23,8 @@ export default function TabViewInternationalComponent({params}) {
   };
   const [modelData, setModelData] = useState(dummyModelObj);
   const [modelVisible, setModelVisible] = useState(false);
+  const [isUpdateModelVisible, setIsUpdateModelVisible] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(0)
-  console.log("selectedIndex", selectedIndex);
 
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredData, setFilteredData] = useState(params.data);
@@ -37,6 +38,7 @@ export default function TabViewInternationalComponent({params}) {
   };
   return (
     <>
+      {isUpdateModelVisible ? <UpdateProductModel props = {{setIsUpdateModelVisible}} /> : null}
       {modelVisible ? (
         <ProductModel props={{item: modelData, setModelVisible}} />
       ) : (
@@ -56,6 +58,7 @@ export default function TabViewInternationalComponent({params}) {
               setModelVisible,
               selectedIndex,
               setSelectedIndex,
+              setIsUpdateModelVisible
             }}
           />
         </View>

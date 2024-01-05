@@ -147,7 +147,20 @@ export default function NewDashboard(props) {
                   />
                 </TouchableOpacity>
               </View>
-              <View style={styles.rowLeft}>
+              <View style={styles.row}>
+              <TouchableOpacity
+                onPress={() => {
+                  Navigator('AddSubCategory');
+                }}>
+                <NewDashboardCard
+                  propsData={{
+                    bgColor: '#bfeec4',
+                    color: '#21694c',
+                    icon: 'arrow-right-bottom',
+                    text: 'Add Subcategory',
+                  }}
+                />
+              </TouchableOpacity>
                 <TouchableOpacity
                   onPress={() => {
                     Navigator('AddProduct');

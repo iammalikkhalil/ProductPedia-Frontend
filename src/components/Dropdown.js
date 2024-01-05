@@ -6,7 +6,11 @@ import Colors from '../assets/Colors';
 
 const DropdownComponent = ({propsData}) => {
   const [focus, setFocus] = useState(false);
+  let dropdownLabel = 'Select...';
 
+  if (propsData.dropdownLabel != undefined) {
+    dropdownLabel = propsData.dropdownLabel;
+  }
   return (
     <View style={styles.container}>
       <Dropdown
@@ -15,7 +19,7 @@ const DropdownComponent = ({propsData}) => {
         selectedTextStyle={styles.selectedTextStyle}
         inputSearchStyle={styles.inputSearchStyle}
         iconStyle={styles.iconStyle}
-        itemTextStyle = {styles.dropdownTextStyle}
+        itemTextStyle={styles.dropdownTextStyle}
         data={propsData.data}
         onFocus={() => setFocus(true)}
         onBlur={() => setFocus(false)}
@@ -23,7 +27,7 @@ const DropdownComponent = ({propsData}) => {
         maxHeight={300}
         labelField="name"
         valueField="_id"
-        placeholder={'Select...'}
+        placeholder={dropdownLabel}
         searchPlaceholder="Search..."
         value={propsData.value}
         onChange={item => {

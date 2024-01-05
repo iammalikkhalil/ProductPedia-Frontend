@@ -1,28 +1,34 @@
 import {View, Text, TextInput} from 'react-native';
 import {StyleSheet, TouchableOpacity, Alert} from 'react-native';
 import React, {useState, useEffect} from 'react';
-import {Picker} from '@react-native-picker/picker';
 import {useSelector} from 'react-redux';
-import {launchImageLibrary} from 'react-native-image-picker';
-
 import axios from 'axios';
-
 import Colors from '../assets/Colors';
 import ShowToast from '../components/ShowToast';
 import Toast from 'react-native-toast-message';
-import {postproductApi} from '../redux/constants/Apis';
+import {
+  getSubCategoriesByCategoryIdApi,
+  postproductApi,
+} from '../redux/constants/Apis';
 import DropdownComponent from '../components/Dropdown';
 
 export default function AddProduct() {
   const categoriesList = useSelector(state => state.CategoryReducers);
   const companiesList = useSelector(state => state.CompanyReducers);
+  const [subCategoriesList, setSubCategoriesList] = useState([]);
   const [isCategoryPickerValueSelected, setIsCategoryPickerValueSelected] =
     useState(false);
+  const [
+    isSubCategoryPickerValueSelected,
+    setIsSubCategoryPickerValueSelected,
+  ] = useState(false);
   const [isCompanyPickerValueSelected, setIsCompanyPickerValueSelected] =
     useState(false);
   const [selectedCategoryPickerItem, setSelectedCategoryPickerItem] = useState(
     {},
   );
+  const [selectedSubCategoryPickerItem, setSelectedSubCategoryPickerItem] =
+    useState({});
   const [selectedCompanyPickerItem, setSelectedCompanyPickerItem] = useState(
     {},
   );
@@ -36,8 +42,8 @@ export default function AddProduct() {
       const obj = {
         name: productName,
         discription: productDiscription,
-        companyId: selectedCompanyPickerItem._id,
-        categoryId: selectedCategoryPickerItem._id,
+        company: selectedCompanyPickerItem._id,
+        subCategory: selectedSubCategoryPickerItem._id,
       };
       let response = await axios.post(postproductApi, obj, {
         'Content-Type': 'application/json',
@@ -58,17 +64,45 @@ export default function AddProduct() {
         });
       }
     } catch (error) {
-      console.error('An error occurred:', error);
+      console.error('An error occurred:');
+      ShowToast({
+        type: 'error',
+        text1: 'Error! Company Not Inserted Please Try Again',
+      });
     } finally {
       setIsSubmitButtonEnable(true);
     }
   }
 
+  async function GetSubCategoriesByCategoryIdApi() {
+    try {
+      const response = await axios.put(
+        getSubCategoriesByCategoryIdApi,
+        {
+          category: selectedCategoryPickerItem._id,
+        },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        },
+      );
+      setSubCategoriesList(response.data);
+    } catch (error) {
+      console.error('Error getting subCategories:', error);
+    }
+  }
+
+  useEffect(() => {
+    setSelectedSubCategoryPickerItem({})
+    GetSubCategoriesByCategoryIdApi();
+  }, [selectedCategoryPickerItem]);
+
   return (
     <View>
       <View style={styles.container}>
         <View style={styles.inputContainer}>
-          <Text style={styles.inputContainerLabel}>Company Name</Text>
+          <Text style={styles.inputContainerLabel}>Product Name</Text>
           <TextInput
             style={styles.inputContainerInputFeild}
             placeholderTextColor="gray"
@@ -108,6 +142,20 @@ export default function AddProduct() {
           </View>
         </View>
         <View style={styles.inputContainer}>
+          <Text style={styles.inputContainerLabel}>Sub Category</Text>
+          <View style={styles.pickerWrapper}>
+            <View style={styles.pickerContainer}>
+              <DropdownComponent
+                propsData={{
+                  data: subCategoriesList,
+                  value: selectedSubCategoryPickerItem,
+                  setValue: setSelectedSubCategoryPickerItem,
+                }}
+              />
+            </View>
+          </View>
+        </View>
+        <View style={styles.inputContainer}>
           <Text style={styles.inputContainerLabel}>Company</Text>
           <View style={styles.pickerWrapper}>
             <View style={styles.pickerContainer}>
@@ -122,9 +170,7 @@ export default function AddProduct() {
           </View>
         </View>
         <View style={styles.btnContainer}>
-          <TouchableOpacity
-            onPress={PostData}
-            disabled={!isSubmitButtonEnable}>
+          <TouchableOpacity onPress={PostData} disabled={!isSubmitButtonEnable}>
             <Text style={styles.btnText}>Submit</Text>
           </TouchableOpacity>
         </View>

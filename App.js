@@ -30,6 +30,8 @@ import NewDashboardCard from './src/components/NewDashboardCard';
 import NewDashboard from './src/screens/NewDashboard';
 import DisclamierModel from './src/models/DisclamerModel'
 import DrawerModel from './src/models/DrawerModel';
+import UpdateProductModel from './src/models/UpdateProductModel';
+import AddSubCategory from './src/screens/AddSubCategory';
 
 export default function App() {
   const dispatch = useDispatch();
@@ -42,6 +44,8 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator screenOptions={{headerShown: false}}>
         <Stack.Screen name="Splash" component={Splash} />
+        <Stack.Screen name="AddSubCategory" component={AddSubCategory} />
+        <Stack.Screen name="AddProduct" component={AddProduct} />
         <Stack.Screen name="DrawerModel" component={DrawerModel} />
         <Stack.Screen name="NewDashboard" component={NewDashboard} />
         <Stack.Screen name="BarcodeScanner" component={BarcodeScanner} />
@@ -50,7 +54,6 @@ export default function App() {
         <Stack.Screen name="Flatlist" component={Flatlist} />
         <Stack.Screen name="ShowFeedback" component={ShowFeedback} />
         <Stack.Screen name="AddFeedback" component={AddFeedback} />
-        <Stack.Screen name="AddProduct" component={AddProduct} />
         <Stack.Screen name="AddCategory" component={AddCategory} />
         <Stack.Screen name="AddCountry" component={AddCountry} />
         <Stack.Screen name="AddCompany" component={AddCompany} />

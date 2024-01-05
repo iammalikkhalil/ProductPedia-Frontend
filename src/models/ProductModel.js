@@ -12,7 +12,7 @@ import Ip from '../assets/Ip';
 import Colors from '../assets/Colors';
 
 const ProductModel = ({props}) => {
-  const companyLogo = Ip + '/images/' + props.item.companyId.companyLogo;
+  const companyLogo = Ip + '/images/' + props.item.company.companyLogo;
   return (
     <View style={styles.centeredView}>
       <Modal
@@ -39,20 +39,20 @@ const ProductModel = ({props}) => {
               <View style={styles.discriptionContainer}>
                 <Text style={styles.heading}>{props.item.name}</Text>
                 <Text style={styles.headingDiscription}>
-                  {props.item.categoryId.name}
+                  {props.item.subCategory.name}
                 </Text>
                 <Text style={styles.line}>____________________________</Text>
                 <View style={styles.companyDetailContainer}>
                   <View style={styles.companyDetailRow}>
                     <Text style={styles.label}>Company: </Text>
                     <Text style={styles.detail}>
-                      {props.item.companyId.name}
+                      {props.item.company.name}
                     </Text>
                   </View>
                   <View style={styles.companyDetailRow}>
                     <Text style={styles.label}>Country: </Text>
                     <Text style={styles.detail}>
-                      {props.item.companyId.country.name}
+                      {props.item.company.country.name}
                     </Text>
                   </View>
                 </View>

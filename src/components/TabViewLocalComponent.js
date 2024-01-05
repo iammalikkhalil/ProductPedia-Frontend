@@ -3,8 +3,8 @@ import {StyleSheet, Text, View, TextInput} from 'react-native';
 import Flatlist from './Flatlist';
 import Colors from '../assets/Colors';
 
-import {useSelector} from 'react-redux';
 import ProductModel from '../models/ProductModel';
+import UpdateProductModel from '../models/UpdateProductModel';
 
 export default function TabViewLocalComponent({params}) {
   const dummyModelObj = {
@@ -23,8 +23,8 @@ export default function TabViewLocalComponent({params}) {
   };
   const [modelData, setModelData] = useState(dummyModelObj);
   const [modelVisible, setModelVisible] = useState(false);
-  const [selectedIndex, setSelectedIndex] = useState(0)
-
+  const [isUpdateModelVisible, setIsUpdateModelVisible] = useState(false);
+  const [selectedIndex, setSelectedIndex] = useState(0);
 
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredData, setFilteredData] = useState(params.data);
@@ -38,8 +38,11 @@ export default function TabViewLocalComponent({params}) {
   };
   return (
     <>
+      {isUpdateModelVisible ? <UpdateProductModel props = {{setIsUpdateModelVisible}} /> : null}
       {modelVisible ? (
-        <ProductModel props={{item: modelData, setModelVisible: setModelVisible}} />
+        <ProductModel
+          props={{item: modelData, setModelVisible: setModelVisible}}
+        />
       ) : (
         <View>
           <TextInput
@@ -57,6 +60,7 @@ export default function TabViewLocalComponent({params}) {
               setModelData,
               setModelVisible,
               setSelectedIndex,
+              setIsUpdateModelVisible
             }}
           />
         </View>

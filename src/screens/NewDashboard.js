@@ -39,9 +39,10 @@ export default function NewDashboard(props) {
       <GestureHandlerRootView style={styles.container}>
         <NewHeader props={{setDrawerVisible}} />
         <ScrollView>
-          {role == 'false' ? <NewDisclaimer /> : null}
-          <View style={styles.row}>
+          <View style={styles.flexContainer}>
+            {/* element 1 */}
             <TouchableOpacity
+              style={styles.flexItem}
               onPress={() => {
                 Navigator('Explore');
               }}>
@@ -55,8 +56,10 @@ export default function NewDashboard(props) {
               />
             </TouchableOpacity>
 
+            {/* element 2 */}
             {role == 'true' ? (
               <TouchableOpacity
+                style={styles.flexItem}
                 onPress={() => {
                   Navigator('ShowFeedback');
                 }}>
@@ -71,6 +74,7 @@ export default function NewDashboard(props) {
               </TouchableOpacity>
             ) : (
               <TouchableOpacity
+                style={styles.flexItem}
                 onPress={() => {
                   Navigator('AddFeedback');
                 }}>
@@ -84,9 +88,10 @@ export default function NewDashboard(props) {
                 />
               </TouchableOpacity>
             )}
-          </View>
-          <View style={role == 'true' ? styles.row : styles.rowLeft}>
+
+            {/* element 3 */}
             <TouchableOpacity
+              style={styles.flexItem}
               onPress={() => {
                 Navigator('BarcodeScanner');
               }}>
@@ -101,26 +106,27 @@ export default function NewDashboard(props) {
             </TouchableOpacity>
 
             {role == 'true' ? (
-              <TouchableOpacity
-                onPress={() => {
-                  Navigator('AddCountry');
-                }}>
-                <NewDashboardCard
-                  propsData={{
-                    bgColor: '#ffe9d5',
-                    color: '#deb974',
-                    icon: 'flag-plus-outline',
-                    text: 'Add country',
-                  }}
-                />
-              </TouchableOpacity>
-            ) : null}
-          </View>
-
-          {role == 'true' ? (
-            <>
-              <View style={styles.row}>
+              <>
+                {/* element 4 */}
                 <TouchableOpacity
+                  style={styles.flexItem}
+                  onPress={() => {
+                    Navigator('AddCountry');
+                  }}>
+                  <NewDashboardCard
+                    propsData={{
+                      bgColor: '#ffe9d5',
+                      color: '#deb974',
+                      icon: 'flag-plus-outline',
+                      text: 'Add country',
+                    }}
+                  />
+                </TouchableOpacity>
+
+                {/* element 5 */}
+
+                <TouchableOpacity
+                  style={styles.flexItem}
                   onPress={() => {
                     Navigator('AddCompany');
                   }}>
@@ -133,35 +139,45 @@ export default function NewDashboard(props) {
                     }}
                   />
                 </TouchableOpacity>
+
+                {/* element 6 */}
+
                 <TouchableOpacity
+                  style={styles.flexItem}
                   onPress={() => {
                     Navigator('AddCategory');
                   }}>
                   <NewDashboardCard
                     propsData={{
-                      bgColor: '#ffe9d5',
-                      color: '#deb974',
+                      bgColor: '#bfeec4',
+                      color: '#21694c',
                       icon: 'gamepad-circle-outline',
                       text: 'Add category',
                     }}
                   />
                 </TouchableOpacity>
-              </View>
-              <View style={styles.row}>
-              <TouchableOpacity
-                onPress={() => {
-                  Navigator('AddSubCategory');
-                }}>
-                <NewDashboardCard
-                  propsData={{
-                    bgColor: '#bfeec4',
-                    color: '#21694c',
-                    icon: 'arrow-right-bottom',
-                    text: 'Add Subcategory',
-                  }}
-                />
-              </TouchableOpacity>
+
+                {/* element 7 */}
+
                 <TouchableOpacity
+                  style={styles.flexItem}
+                  onPress={() => {
+                    Navigator('AddSubCategory');
+                  }}>
+                  <NewDashboardCard
+                    propsData={{
+                      bgColor: '#ffe9d5',
+                      color: '#deb974',
+                      icon: 'arrow-right-bottom',
+                      text: 'Add Subcategory',
+                    }}
+                  />
+                </TouchableOpacity>
+
+                {/* element 8 */}
+
+                <TouchableOpacity
+                  style={styles.flexItem}
                   onPress={() => {
                     Navigator('AddProduct');
                   }}>
@@ -174,11 +190,27 @@ export default function NewDashboard(props) {
                     }}
                   />
                 </TouchableOpacity>
-              </View>
-            </>
-          ) : (
-            <></>
-          )}
+              </>
+            ) : null}
+            {/* dummy blank invisible element 8 */}
+
+            <TouchableOpacity
+                  disabled={true}
+                  style={[styles.flexItem, {height: 0}]}
+                  onPress={() => {
+                    Navigator('AddProduct');
+                  }}>
+                  <NewDashboardCard
+                    propsData={{
+                      bgColor: 'white',
+                      color: 'white',
+                      icon: 'cart-plus',
+                      text: '',
+                    }}
+                  />
+                </TouchableOpacity>
+          </View>
+          {role == 'false' ? <NewDisclaimer /> : null}
         </ScrollView>
       </GestureHandlerRootView>
     </>
@@ -192,14 +224,11 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     backgroundColor: 'white',
   },
-  row: {
+  flexContainer: {
+    width: '100%',
     flexDirection: 'row',
+    flexWrap: 'wrap',
     justifyContent: 'space-evenly',
-  },
-  rowLeft: {
-    justifyContent: 'flex-start',
-    marginLeft: 10,
-    width: '30%',
   },
   break: {
     height: 20,

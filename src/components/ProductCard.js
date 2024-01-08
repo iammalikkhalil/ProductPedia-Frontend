@@ -29,15 +29,19 @@ export default function ProductCard({cardData}) {
   const [isOptionMenuVisible, setIsOptionMenuVisible] = useState(false);
 
   async function checkRole() {
-    const value = await AsyncStorage.getItem('role');
-    if (value != null) {
-      if (value == 'true') {
-        setShowOptionMenu('true');
+    try {
+      const value = await AsyncStorage.getItem('role');
+      if (value != null) {
+        if (value == 'true') {
+          setShowOptionMenu('true');
+        } else {
+          setShowOptionMenu('false');
+        }
       } else {
         setShowOptionMenu('false');
       }
-    } else {
-      setShowOptionMenu('false');
+    } catch (error) {
+      console.log(error);
     }
   }
 
@@ -50,7 +54,6 @@ export default function ProductCard({cardData}) {
       let response = await axios.delete(
         `${deleteproductApi}/${cardData.item._id}`,
       );
-      console.log(response);
       if (response.status === 200) {
         Alert.alert('', response.data.msg, [
           {
@@ -79,7 +82,7 @@ export default function ProductCard({cardData}) {
 
   return (
     <View style={styles.card}>
-      {showOptionMenu ? (
+      {showOptionMenu == 'true' ? (
         <View style={styles.option}>
           <TouchableOpacity
             onPress={() => {
@@ -187,9 +190,8 @@ const styles = StyleSheet.create({
     position: 'absolute',
     right: 4,
     top: 5,
-    width: 20,
-    borderWidth: 2,
-    height: 20,
+    width: 23,
+    height: 22,
   },
   optionMenu: {
     zIndex: 10,

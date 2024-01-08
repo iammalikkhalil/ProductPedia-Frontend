@@ -32,6 +32,7 @@ import DisclamierModel from './src/models/DisclamerModel'
 import DrawerModel from './src/models/DrawerModel';
 import UpdateProductModel from './src/models/UpdateProductModel';
 import AddSubCategory from './src/screens/AddSubCategory';
+import Test from './src/screens/Test';
 
 export default function App() {
   const dispatch = useDispatch();

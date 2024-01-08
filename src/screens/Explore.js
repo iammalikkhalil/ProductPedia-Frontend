@@ -212,9 +212,14 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
   },
   radioButtonContainer: {
-    marginLeft: 7,
+    paddingLeft: 10,
     flexDirection: 'row',
     alignItems: 'center',
+    elevation: 1,
+    borderBottomRightRadius: 5,
+    borderBottomLeftRadius: 5,
+    backgroundColor: "white"
+    // borderWidth: 2,
   },
   pickerContainer: {
     margin: 10,

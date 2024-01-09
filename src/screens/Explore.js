@@ -141,16 +141,20 @@ export default function Explore() {
   return (
     <View style={styles.container}>
       <View style={styles.radioButtonContainer}>
-        <Text style={{color: Colors.primaryFontColor}}>Search by </Text>
+        <Text style={{color: "white"}}>Search by </Text>
         <RadioButton.Item
           label="Category"
           value="category"
+          color="white"
+          labelStyle={{ color: 'white' }}
           status={sortBy == 'category' ? 'checked' : 'unchecked'}
           onPress={() => handleSortChange('category')}
         />
         <RadioButton.Item
           label="Company"
           value="company"
+          color="white"
+          labelStyle={{ color: 'white' }}
           status={sortBy == 'company' ? 'checked' : 'unchecked'}
           onPress={() => handleSortChange('company')}
         />
@@ -218,7 +222,7 @@ const styles = StyleSheet.create({
     elevation: 1,
     borderBottomRightRadius: 5,
     borderBottomLeftRadius: 5,
-    backgroundColor: "white"
+    backgroundColor: Colors.secondaryBgColor,
     // borderWidth: 2,
   },
   pickerContainer: {

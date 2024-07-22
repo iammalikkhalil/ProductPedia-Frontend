@@ -1,5 +1,27 @@
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
+
+# ProductPedia
+
+ProductPedia is a mobile application designed to provide comprehensive details about commonly used products. Whether you're curious about the company behind a product or its country of origin, ProductPedia has you covered. With a variety of search options and a barcode scanning feature, accessing product information has never been easier.
+
+## Features
+
+- **Product Details:** Access detailed information about products, including the company name and country of origin.
+- **Search by Categories:** Browse products by various categories to find exactly what you need.
+- **Search by Countries:** Discover products based on their country of origin.
+- **Barcode Scanning:** Get instant product details by scanning the product's barcode.
+
+## Technologies Used
+
+- **Frontend:** React Native
+- **Backend:** Node.js, Express
+- **Database:** MongoDB
+
+ProductPedia leverages advanced search and scanning capabilities to provide users with detailed and accurate product information, making it an invaluable tool for consumers and researchers alike.
+
+
+
 # Getting Started
 
 >**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
